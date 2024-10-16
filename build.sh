@@ -1,8 +1,6 @@
 rm -rf ./out/*
 
-find . -name "*.java" > .args
-javac -d ./out @.args
-rm .args
+javac -d ./out $(find . -name "*.java")
 
 jar --create --file=./out/Build.jar --main-class=work3.Main -C ./out .
 
