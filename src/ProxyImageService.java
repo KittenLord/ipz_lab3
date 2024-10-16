@@ -30,6 +30,7 @@ public class ProxyImageService implements ImageService {
      * @param url The url of the image
      */
     public ImageData getFromUrl(String url) {
+        System.out.println("ProxyImageService::getFromUrl called with url=" + url);
 
         if(cache.containsKey(url)) { return cache.get(url); }
 
@@ -46,6 +47,7 @@ public class ProxyImageService implements ImageService {
      * @param url THe url that is used to get (uhhh) the image, or to retrieve (aaaaaaa) it from the cache
      */
     public Color getColorAt(int x, int y, String url) {
+        System.out.println("ProxyImageService::getColorAt called with x=" + x + ", y=" + y + ", url=" + url);
 
         ImageData image = this.getFromUrl(url);
         return image.getColorAt(x, y);

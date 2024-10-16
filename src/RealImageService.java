@@ -11,6 +11,8 @@ public class RealImageService implements ImageService {
      * A method that gets (returns (retrieves)) the data of an image by its url and doesn't use any caching techniques (unlike the ProxyImageService class)
      */
     public ImageData getFromUrl(String url) {
+        System.out.println("RealImageService::getFromUrl called with url=" + url);
+
         System.out.println("SENT REQUEST FOR IMAGE");
         try { Thread.sleep(5000); } catch(Exception e) { /* too bad */ }
         System.out.println("RECEIVED IMAGE");
@@ -25,6 +27,8 @@ public class RealImageService implements ImageService {
      * @param url The url with which the image to be retrieved is accessed
      */
     public Color getColorAt(int x, int y, String url) {
+        System.out.println("RealImageService::getColorAt called with x=" + x + ", y=" + y + ", url=" + url);
+
         ImageData image = getFromUrl(url);
         return image.getColorAt(x, y);
     }
